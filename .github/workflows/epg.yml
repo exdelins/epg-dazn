@@ -1,0 +1,61 @@
+name: guia
+
+# Genera la guia XMLTV de los canales DAZN (DE/IT/PT/ES) con el grabber de iptv-org
+# y la publica en la rama "guide", de un solo commit para que el repo no engorde.
+on:
+  schedule:
+    - cron: '0 4 * * *'      # cada dia a las 04:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  guia:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Traer el grabber
+        run: |
+          git clone --depth 1 -b master https://github.com/iptv-org/epg.git grabber
+          cd grabber && npm install --no-audit --no-fund
+
+      - name: Descargar la guia
+        run: |
+          cp dazn.channels.xml grabber/dazn.channels.xml
+          cd grabber
+          npm run grab --- --channels=dazn.channels.xml -o ../dazn.xml --days=7 --maxConnections=3
+
+      - name: Comprobar que sirve para algo
+        run: |
+          python3 - <<'PY'
+          import xml.etree.ElementTree as ET, collections, sys
+          r = ET.parse('dazn.xml').getroot()
+          progs = r.findall('programme')
+          cnt = collections.Counter(p.get('channel') for p in progs)
+          ids = sorted(ch.get('id') for ch in r.findall('channel'))
+          vacios = [c for c in ids if not cnt[c]]
+          print('%d programas, %d canales con datos de %d' % (len(progs), len(ids) - len(vacios), len(ids)))
+          if vacios:
+              print('VACIOS: ' + ', '.join(vacios))
+          # Fallar solo si la guia entera es inservible; un sitio roto no debe tumbar el resto.
+          if len(progs) < 500:
+              sys.exit('guia demasiado corta (%d programas): algo se ha roto' % len(progs))
+          PY
+
+      - name: Publicar en la rama guide
+        run: |
+          mkdir -p out && cp dazn.xml out/
+          cd out
+          git init -q
+          git checkout -q -b guide
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add dazn.xml
+          git commit -q -m "guia $(date -u +%Y-%m-%d)"
+          git push -q --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" guide

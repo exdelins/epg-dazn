@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channels>
+  <channel site="gatotv.com" lang="es" xmltv_id="Eurosport1" site_id="eurosport_1_espana">Eurosport 1</channel>
+  <channel site="gatotv.com" lang="es" xmltv_id="Eurosport2" site_id="eurosport_2_espana">Eurosport 2</channel>
+  <channel site="gatotv.com" lang="es" xmltv_id="NFLNetwork" site_id="nfl_network">NFL Network</channel>
+  <channel site="i.mjh.nz" lang="en" xmltv_id="DiscoveryIT" site_id="SkyGo/epg#sky.70">Discovery IT</channel>
+  <channel site="i.mjh.nz" lang="de" xmltv_id="RedBullTV" site_id="PlutoTV/de#5e7cb84a172a0f0007da69e4">Red Bull TV</channel>
+  <channel site="plex.tv" lang="en" xmltv_id="Unbeaten" site_id="67f45ef989089d917e1b1634">Unbeaten</channel>
+  <channel site="meo.pt" lang="pt" xmltv_id="DAZN1PT" site_id="DAZN1">DAZN 1 PT</channel>
+  <channel site="meo.pt" lang="pt" xmltv_id="DAZN2PT" site_id="DAZN2">DAZN 2 PT</channel>
+  <channel site="meo.pt" lang="pt" xmltv_id="DAZN3PT" site_id="DAZN3">DAZN 3 PT</channel>
+  <channel site="meo.pt" lang="pt" xmltv_id="DAZN4PT" site_id="DAZN4">DAZN 4 PT</channel>
+  <channel site="meo.pt" lang="pt" xmltv_id="DAZN5PT" site_id="DAZN5">DAZN 5 PT</channel>
+  <channel site="orangetv.orange.es" lang="es" xmltv_id="DAZNLALIGA" site_id="11077">DAZN LALIGA</channel>
+  <channel site="sky.com" lang="de" xmltv_id="DAZN1DE" site_id="DE#132">DAZN 1 DE</channel>
+  <channel site="sky.com" lang="it" xmltv_id="DAZN1IT" site_id="IT#566">DAZN 1 IT</channel>
+  <channel site="sky.com" lang="de" xmltv_id="DAZN2DE" site_id="DE#122">DAZN 2 DE</channel>
+  <channel site="sky.com" lang="de" xmltv_id="Eurosport1DE" site_id="DE#1202">Eurosport 1 DE</channel>
+  <channel site="tv.blue.ch" lang="it" xmltv_id="Eurosport1IT" site_id="169">Eurosport 1 IT</channel>
+  <channel site="tv.blue.ch" lang="it" xmltv_id="Eurosport2IT" site_id="172">Eurosport 2 IT</channel>
+  <channel site="sky.com" lang="it" xmltv_id="InterTVIT" site_id="IT#487">Inter TV IT</channel>
+  <channel site="sky.com" lang="it" xmltv_id="MilanTVIT" site_id="IT#261">Milan TV IT</channel>
+  <channel site="sky.com" lang="it" xmltv_id="RealTimeIT" site_id="IT#507">Real Time IT</channel>
+  <channel site="sky.com" lang="de" xmltv_id="SPORTDIGITALFUSSBALLDE" site_id="DE#4300">SPORTDIGITAL FUSSBALL DE</channel>
+  <channel site="tv.blue.ch" lang="de" xmltv_id="DAZNFASTDE" site_id="1452">DAZN FAST+ DE</channel>
+  <channel site="tv.blue.ch" lang="de" xmltv_id="Eurosport2DE" site_id="170">Eurosport 2 DE</channel>
+  <channel site="tvpassport.com" lang="en" xmltv_id="MLBNetworkDE" site_id="mlb-network-hd/6218">MLB Network DE</channel>
+</channels>
